@@ -19,6 +19,7 @@ h1,h2,h3 {
 
 p,span {
     font-family: 'Roboto', sans-serif;
+    font-weight: 400;
 }
 
 #hero {
@@ -49,10 +50,14 @@ p,span {
 
 #hero .container .header h1 {
     font-size: 5rem;
+    font-weight: 300;
 }
 
 #hero .container .header .buttons {
     padding-top: 3rem;
+    display: flex;
+    flex-wrap: nowrap;
+    
 }
 #hero .container .header .buttons .button {
     border-radius: 18px;
@@ -90,7 +95,38 @@ p,span {
     padding: 0 3rem;
 }
 
-
+/* media query for mobile - home page */
+@media only screen and (max-width: 480px) {
+    #hero .container {
+        gap: 1rem;
+        grid-template-columns: 1fr 5fr 1fr;
+        grid-template-rows:  0.3fr 3fr 1fr 1fr 1fr;
+        grid-template-areas: 
+        '.  .... .'
+        '. header .' 
+        '. user   . '
+        '. server . '
+        '. quiz   .';
+        
+    }
+    /* undisplaying the photo */
+    #hero .container .hero-photo {
+        grid-area: none;
+    }
+    #hero .container .hero-photo img {
+       display: none;
+    }
+    
+    /* responsive buttons with padding */
+    #hero .container .header .buttons { 
+        flex-wrap: wrap;
+      
+    }
+    #hero .container .header .buttons .button {
+        margin-bottom: 2rem;
+    }
+    
+}
 
 
 
